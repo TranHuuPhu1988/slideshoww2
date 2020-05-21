@@ -2,21 +2,22 @@ $(document).ready(function(){
 
     $("#slideshow > div:gt(0)").hide();
     
-    var buttons = "<button class=\"slidebtn prev\"><i class=\"fa fa-chevron-circle-left\"></i></button><button class=\"slidebtn next\"><i class=\"fa fa-chevron-circle-right\"></i></button\>";
+    //var buttons = "<button class=\"slidebtn prev\"><i class=\"fa fa-chevron-circle-left\"></i></button><button class=\"slidebtn next\"><i class=\"fa fa-chevron-circle-right\"></i></button\>";
     
-    var slidesl = $('.slideitem').length
-    var d = "<li class=\"dot active-dot\">&bull;</li>";
-    for (var i = 1; i < slidesl; i++) {
-      d = d+"<li class=\"dot\">&bull;</li>";
-    }	
-    var dots = "<ul class=\"slider-dots\">" + d + "</ul\>";
+    // var slidesl = $('.slideitem').length
+    // var d = "<li class=\"dot active-dot\">&bull;</li>";
+    // for (var i = 1; i < slidesl; i++) {
+    //   d = d+"<li class=\"dot\">&bull;</li>";
+    // }	
+    // var dots = "<ul class=\"slider-dots\">" + d + "</ul\>";
+    var dots = $('.dot')
     
-    $("#slideshow").append(dots).append(buttons);
-    var interval = setInterval(slide, 3000);
+    // $("#slideshow").append(dots).append(buttons);
+    var interval = setInterval(slide, 1000);
     
     function intslide(func) {
         if (func == 'start') { 
-         interval = setInterval(slide, 3000);
+         interval = setInterval(slide, 1000);
         } else {
             clearInterval(interval);		
         }
@@ -30,12 +31,12 @@ $(document).ready(function(){
             var currentSlide = $('.current');
             var nextSlide = currentSlide.next('.slideitem');
             var prevSlide = currentSlide.prev('.slideitem');
-                var reqSlide = $('.slideitem').eq(ix);
+            var reqSlide = $('.slideitem').eq(ix);
     
-                var currentDot = $('.active-dot');
-              var nextDot = currentDot.next();
-              var prevDot = currentDot.prev();
-                var reqDot = $('.dot').eq(ix);
+            var currentDot = $('.active-dot');
+            var nextDot = currentDot.next();
+            var prevDot = currentDot.prev();
+            var reqDot = $('.dot').eq(ix);
             
             if (nextSlide.length == 0) {
                   nextDot = $('.dot').first();
